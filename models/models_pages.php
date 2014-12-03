@@ -47,4 +47,10 @@ foreach(PhangoVar::$arr_i18n as $lang_i18n)
 
 }
 
+PhangoVar::$model['config_page']=new Webmodel('config_page');
+
+PhangoVar::$model['config_page']->set_component('idpage', 'ForeignKeyField', array('page'));
+
+PhangoVar::$model['config_page']->components['idpage']->name_field_to_field='name';
+
 ?>

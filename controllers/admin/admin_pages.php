@@ -14,6 +14,10 @@ function PagesAdmin()
 	{
 
 		default:
+		
+			?>
+			<p><a href="<?php echo set_admin_link('pages', array('op' => 1)); ?>"><?php echo PhangoVar::$lang['pages']['config_home_page']; ?></a></p>
+			<?php
 
 			PhangoVar::$model['page']->create_form();
 
@@ -42,6 +46,32 @@ function PagesAdmin()
 			
 			$admin->show();
 			
+		break;
+		
+		case 1:
+		
+			PhangoVar::$model['config_page']->create_form();
+
+			PhangoVar::$model['config_page']->forms['idpage']->label=PhangoVar::$lang['pages']['page_index'];
+			
+			?>
+			<h3><?php echo PhangoVar::$lang['pages']['config_home_page']; ?></h3>
+			<?php
+		
+			$url_options=set_admin_link( 'pages', array('op' => 1));
+			
+			$admin=new GenerateAdminClass('config_page');
+			
+			$admin->set_url_post($url_options);
+			
+			$admin->set_url_back( set_admin_link( 'pages', array()) );
+			
+			/*$admin->arr_fields=$arr_fields;
+			$admin->arr_fields_edit=$arr_fields_edit;*/			
+
+			
+			$admin->show_config_mode();
+		
 		break;
 	}
 

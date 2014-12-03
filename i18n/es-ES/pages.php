@@ -1,6 +1,10 @@
 <?php
 
+PhangoVar::$lang['pages']['config_home_page']='Configurar página principal';
+
 PhangoVar::$lang['pages']['pages']='Páginas';
+
+PhangoVar::$lang['pages']['page_index']='Página principal';
 
 PhangoVar::$lang['pages']['property']='Propiedad';
 

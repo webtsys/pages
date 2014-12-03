@@ -1,6 +1,10 @@
 <?php
 
+PhangoVar::$lang['pages']['config_home_page']='config_home_page';
+
 PhangoVar::$lang['pages']['pages']='Pages';
+
+PhangoVar::$lang['pages']['page_index']='page_index';
 
 PhangoVar::$lang['pages']['property']='Property';
 
