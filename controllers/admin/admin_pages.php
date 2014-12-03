@@ -32,11 +32,9 @@ function PagesAdmin()
 			$arr_fields_edit=array('name', 'text');
 			$url_options=set_admin_link( 'pages', array());
 
-			//generate_admin_model_ng('page', $arr_fields, $arr_fields_edit, $url_options, $options_func='PagesOptions', $where_sql='', $arr_fields_form=array(), $type_list='Basic');
-
 			$admin=new GenerateAdminClass('page');
 			
-			$admin->url_options=$url_options;
+			$admin->set_url_post($url_options);
 			$admin->arr_fields=$arr_fields;
 			$admin->arr_fields_edit=$arr_fields_edit;
 			
@@ -50,6 +48,7 @@ function PagesAdmin()
 
 			PhangoVar::$model['config_page']->forms['idpage']->label=PhangoVar::$lang['pages']['page_index'];
 			
+			
 			?>
 			<h3><?php echo PhangoVar::$lang['pages']['config_home_page']; ?></h3>
 			<?php
@@ -60,11 +59,7 @@ function PagesAdmin()
 			
 			$admin->set_url_post($url_options);
 			
-			$admin->set_url_back( set_admin_link( 'pages', array()) );
-			
-			/*$admin->arr_fields=$arr_fields;
-			$admin->arr_fields_edit=$arr_fields_edit;*/			
-
+			$admin->set_url_back( set_admin_link( 'pages', array()) );		
 			
 			$admin->show_config_mode();
 		
