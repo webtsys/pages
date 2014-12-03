@@ -25,10 +25,6 @@ function PagesAdmin()
 			
 			PhangoVar::$model['page']->forms['name']->label=PhangoVar::$lang['common']['title'];
 			PhangoVar::$model['page']->forms['text']->label=PhangoVar::$lang['common']['text'];
-		
-			
-			//PhangoVar::$model['page']->forms['text']->parameters=array('text', $class='', '');
-			//PhangoVar::$model['page']->forms['text']->form='TextAreaBBForm';
 			
 			PhangoVar::$model['page']->forms['text']->set_parameter(3, 'TextAreaBBForm');
 			
