@@ -11,7 +11,22 @@ class IndexSwitchClass extends ControllerSwitchClass
 		if($id==0)
 		{
 		
+			$arr_config=PhangoVar::$model['config_page']->select_a_row_where('', array(), 1);
 			
+			settype($arr_config['idpage'], 'integer');
+			
+			if($arr_config['idpage']>0)
+			{
+				
+				$id=$arr_config['idpage'];
+			
+			}
+			else
+			{
+			
+				die;
+			
+			}
 		
 		}
 	
