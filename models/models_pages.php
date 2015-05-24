@@ -35,7 +35,11 @@ Webmodel::$model['page']=new page();
 
 Webmodel::$model['page']->register('name', 'I18nField', array(new CharField(600)), 1);
 
-Webmodel::$model['page']->register('text', 'I18nField', array(new TextHTMLField()), 1);
+$html_field=new TextHTMLField();
+
+$html_field->allowedtags=array();
+
+Webmodel::$model['page']->register('text', 'I18nField', array($html_field), 1);
 
 SlugifyField::add_slugify_i18n_fields('page', 'name');
 
