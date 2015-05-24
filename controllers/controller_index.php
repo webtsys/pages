@@ -1,17 +1,16 @@
 <?php
 
-load_model('pages');
+Webmodel::load_model('pages');
 
-class IndexSwitchClass extends ControllerSwitchClass 
-{
+class indexSwitchController extends ControllerSwitchClass {
 
 	public function index($id=0)
 	{
-	
-		if($id==0)
+		
+		if($id===0)
 		{
 		
-			$arr_config=PhangoVar::$model['config_page']->select_a_row_where('', array(), 1);
+			$arr_config=Webmodel::$model['config_page']->select_a_row_where('', array(), 1);
 			
 			settype($arr_config['idpage'], 'integer');
 			
@@ -30,15 +29,28 @@ class IndexSwitchClass extends ControllerSwitchClass
 		
 		}
 	
-		$arr_page=PhangoVar::$model['page']->select_a_row($id);
+		$arr_page=Webmodel::$model['page']->select_a_row($id);
 		
-		$title=I18nField::show_formatted($arr_page['name']);
+		settype($arr_page['IdPage'], 'integer');
 		
-		$content=I18nField::show_formatted($arr_page['text']);
+		if($arr_page['IdPage'])
+		{
 		
-		$cont_index=load_view(array($title, $content), 'content');
+			$title=I18nField::show_formatted($arr_page['name']);
+			
+			$content=I18nField::show_formatted($arr_page['text']);
+			
+			$cont_index=View::loadView(array($title, $content), 'content');
+			
+			echo View::loadView(array(PhangoVar::$portal_name.' - '.$title, $cont_index), 'home');
 		
-		echo load_view(array(PhangoVar::$portal_name.' - '.$title, $cont_index), 'home');
+		}
+		else
+		{
+		
+			$this->route->response404();
+		
+		}
 	
 	}
 

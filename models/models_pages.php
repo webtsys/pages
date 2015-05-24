@@ -1,6 +1,6 @@
 <?php
 
-load_libraries(array('i18n_fields'));
+Utils::load_libraries(array('fields/i18nfield'));
 
 class page extends Webmodel {
 
@@ -31,26 +31,26 @@ class page extends Webmodel {
 	
 }
 
-PhangoVar::$model['page']=new page();
+Webmodel::$model['page']=new page();
 
-PhangoVar::$model['page']->set_component('name', 'I18nField', array(new CharField(600)), 1);
+Webmodel::$model['page']->register('name', 'I18nField', array(new CharField(600)), 1);
 
-PhangoVar::$model['page']->set_component('text', 'I18nField', array(new TextHTMLField()), 1);
+Webmodel::$model['page']->register('text', 'I18nField', array(new TextHTMLField()), 1);
 
 SlugifyField::add_slugify_i18n_fields('page', 'name');
 
-foreach(PhangoVar::$arr_i18n as $lang_i18n)
+foreach(I18n::$arr_i18n as $lang_i18n)
 {
 
-	PhangoVar::$model['page']->components['name_'.$lang_i18n]->type='VARCHAR(255)';
-	PhangoVar::$model['page']->components['name_'.$lang_i18n]->indexed=true;
+	Webmodel::$model['page']->components['name_'.$lang_i18n]->type='VARCHAR(255)';
+	Webmodel::$model['page']->components['name_'.$lang_i18n]->indexed=true;
 
 }
 
-PhangoVar::$model['config_page']=new Webmodel('config_page');
+Webmodel::$model['config_page']=new Webmodel('config_page');
 
-PhangoVar::$model['config_page']->set_component('idpage', 'ForeignKeyField', array('page'));
+Webmodel::$model['config_page']->register('idpage', 'ForeignKeyField', array(Webmodel::$model['page']));
 
-PhangoVar::$model['config_page']->components['idpage']->name_field_to_field='name';
+Webmodel::$model['config_page']->components['idpage']->name_field_to_field='name';
 
 ?>

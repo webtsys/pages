@@ -1,27 +1,27 @@
 <?php
 
-PhangoVar::$lang['pages']['config_home_page']='config_home_page';
+I18n::$lang['pages']['config_home_page']='config_home_page';
 
-PhangoVar::$lang['pages']['pages']='Pages';
+I18n::$lang['pages']['pages']='Pages';
 
-PhangoVar::$lang['pages']['page_index']='page_index';
+I18n::$lang['pages']['page_index']='page_index';
 
-PhangoVar::$lang['pages']['property']='Property';
+I18n::$lang['pages']['property']='Property';
 
-PhangoVar::$lang['pages']['order_page']='Order property';
+I18n::$lang['pages']['order_page']='Order property';
 
-PhangoVar::$lang['pages']['no_property']='Without properties';
+I18n::$lang['pages']['no_property']='Without properties';
 
-PhangoVar::$lang['pages']['change_order_prop']='Change properties order';
+I18n::$lang['pages']['change_order_prop']='Change properties order';
 
-PhangoVar::$lang['pages']['go_back_index_pages']='Go back to pages';
+I18n::$lang['pages']['go_back_index_pages']='Go back to pages';
 
-PhangoVar::$lang['pages']['property_no_editable']='Property is not editable';
+I18n::$lang['pages']['property_no_editable']='Property is not editable';
 
-PhangoVar::$lang['pages']['page_properties']='Page properties';
+I18n::$lang['pages']['page_properties']='Page properties';
 
-PhangoVar::$lang['pages']['preview']='Page preview';
+I18n::$lang['pages']['preview']='Page preview';
 
-PhangoVar::$lang['pages']['page_properties_admin']='Page properties admin';
+I18n::$lang['pages']['page_properties_admin']='Page properties admin';
 
 ?>

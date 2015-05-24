@@ -6,9 +6,9 @@ function PagesAdmin()
 	settype($_GET['op'], 'integer');
 	settype($_GET['IdPage'], 'integer');
 
-	load_libraries(array('generate_admin_ng', 'forms/textareabb', 'admin/generate_admin_class'));
-	load_model('pages');
-	load_lang('pages');
+	Utils::load_libraries(array('generate_admin_ng', 'forms/textareabb', 'admin/generate_admin_class'));
+	Webmodel::load_model('pages');
+	I18n::loadLang('pages');
 
 	switch($_GET['op'])
 	{
@@ -16,17 +16,17 @@ function PagesAdmin()
 		default:
 		
 			?>
-			<p><a href="<?php echo set_admin_link('pages', array('op' => 1)); ?>"><?php echo PhangoVar::$lang['pages']['config_home_page']; ?></a></p>
+			<p><a href="<?php echo set_admin_link('pages', array('op' => 1)); ?>"><?php echo I18n::$lang['pages']['config_home_page']; ?></a></p>
 			<?php
 
-			PhangoVar::$model['page']->create_form();
+			Webmodel::$model['page']->create_form();
 
-			PhangoVar::$model['page']->label=PhangoVar::$lang['pages']['pages'];
+			Webmodel::$model['page']->label=I18n::$lang['pages']['pages'];
 			
-			PhangoVar::$model['page']->forms['name']->label=PhangoVar::$lang['common']['title'];
-			PhangoVar::$model['page']->forms['text']->label=PhangoVar::$lang['common']['text'];
+			Webmodel::$model['page']->forms['name']->label=I18n::$lang['common']['title'];
+			Webmodel::$model['page']->forms['text']->label=I18n::$lang['common']['text'];
 			
-			PhangoVar::$model['page']->forms['text']->set_parameter(3, 'TextAreaBBForm');
+			Webmodel::$model['page']->forms['text']->set_parameter(3, 'TextAreaBBForm');
 			
 			$arr_fields=array('name');
 			$arr_fields_edit=array('name', 'text');
@@ -44,13 +44,13 @@ function PagesAdmin()
 		
 		case 1:
 		
-			PhangoVar::$model['config_page']->create_form();
+			Webmodel::$model['config_page']->create_form();
 
-			PhangoVar::$model['config_page']->forms['idpage']->label=PhangoVar::$lang['pages']['page_index'];
+			Webmodel::$model['config_page']->forms['idpage']->label=I18n::$lang['pages']['page_index'];
 			
 			
 			?>
-			<h3><?php echo PhangoVar::$lang['pages']['config_home_page']; ?></h3>
+			<h3><?php echo I18n::$lang['pages']['config_home_page']; ?></h3>
 			<?php
 		
 			$url_options=set_admin_link( 'pages', array('op' => 1));
